@@ -55,7 +55,7 @@ if [ "$sim" = "yes" ]; then
   (cd ../$MODULE-$VERSION; make)
   (cd ../$MODULE-$VERSION; make check)
   (cd ../$MODULE-$VERSION; make doc)
-  (cd ../$MODULE-$VERSION; make example)
+#  (cd ../$MODULE-$VERSION; make example)
 fi
 
 if [ "$pub" = "yes" ]; then
