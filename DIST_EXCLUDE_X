@@ -1,0 +1,6 @@
+DIST
+DIST_EXCLUDE_X
+DIST_EXCLUDE
+Gauche-magic.gpd
+autom4te.cache
+gauche-magic
