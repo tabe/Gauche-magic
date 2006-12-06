@@ -1,0 +1,30 @@
+Basic
+=====
+
+It is necessary to:
+- use gauche 0.8.7 or later
+- have been installed the magic library (aka libmagic) of file-4.12 or higher.
+
+
+Command lines
+=============
+
+$ ./configure
+$ make
+# make install
+
+
+Distribution Specific
+=====================
+
+* Debian (sarge)
+If you do not have the magic library, then:
+# apt-get install libmagic1 libmagic-dev
+
+* Fedora Core 5
+If you do not have the magic library, then:
+# yum install file
+
+* Cygwin
+I have succeeded in installing it with Cygwin DLL 1.5.21-1 (Windows XP).
+Good luck! :-)
