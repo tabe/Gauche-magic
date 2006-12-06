@@ -58,7 +58,7 @@
    (test* "magic-check(empty)" *test-error* (magic-check ms "test/empty"))
    (test* "magic-check(trivial)" 0 (magic-check ms "test/trivial"))
    (test* "magic-compile" 0 (magic-compile ms "test/trivial")))
- :flag MAGIC_CHECK)
+ :flags MAGIC_CHECK)
 
 (test-section "errors")
 
@@ -70,7 +70,7 @@
 	 (test* "slot message of <magic-error>" "no magic files loaded"	(condition-ref e 'message))
 	 (test* "slot no of <magic-error>" 0 (condition-ref e 'no))
 	 ))
- :flag MAGIC_CHECK)
+ :flags MAGIC_CHECK)
 
 (test-end)
 
