@@ -76,8 +76,8 @@
 		 "互いに論理積が0になり、これらの論理和を magic-open や call-with-magic-set のフラグとして利用します。"))
 
 	   ((procedure (magic-open flags))
-		("Return a <magic-set> with given `flags'.")
-		("フラグ `flags' を指定して <magic-set> を返します。"))
+		("Return a <magic-set> with given `flags', or #f if an error occurs.")
+		("フラグ `flags' を指定して <magic-set> を返します。エラーが生じた場合は #f を返します。"))
 
 	   ((procedure (magic-close ms))
 		("Close the <magic-set> `ms'. It is preferable but optional since gc works in the long run.")
@@ -95,8 +95,8 @@
 		 "`ms' のフラグのうち MAGIC_CHECK がオンでなければならず、そうでない場合はエラーとなります。"))
 
 	   ((procedure (magic-file ms path))
-		("Return the description of the file `path' as a string.")
-		("`path' にあるファイルの情報を文字列として返します。"))
+		("Return the description of the file `path' as a string, or #f if an error occurs.")
+		("`path' にあるファイルの情報を文字列として返します。エラーが生じた場合は #f を返します。"))
 
 	   ((parameter default-magic-file)
 		("Return the path of the default database file, e.g. /usr/share/file/magic.")
@@ -138,7 +138,7 @@
 	  (if (eq? 'en lang)
 		  (api en)
 		  (api ja))
-	  (html:address "(c) 2006 Takeshi Abe")
+	  (html:address "&copy; 2006 Takeshi Abe")
 	  ))))
 
 (define (main args)

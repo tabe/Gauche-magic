@@ -49,7 +49,7 @@
 (define-enum MAGIC_ERROR)
 
 (define-cproc magic-open (flags::<fixnum>)
-  (call <magic-set> "fileMagicOpen"))
+  (call <magic-set>? "fileMagicOpen"))
 (define-cproc magic-close (ms::<magic-set>)
   (body <void>
 		"if (!fileMagicSetClosedP(ms_scm)) {"
@@ -58,7 +58,7 @@
 		"}"))
 
 (define-cproc magic-file (ms::<magic-set> path::<const-cstring>)
-  (call <const-cstring> "fileMagicFile"))
+  (call <const-cstring>? "fileMagicFile"))
 
 (define-cproc magic-load (ms::<magic-set> path::<const-cstring>)
   (call <fixnum> "fileMagicLoad"))
