@@ -72,7 +72,7 @@ fileMagicRaiseCondition(magic_t ms)
   return Scm_RaiseCondition(SCM_SYMBOL_VALUE("file.magic", "<magic-error>"),
 							"no", SCM_MAKE_INT(no),
 							SCM_RAISE_CONDITION_MESSAGE,
-							msg);
+							(msg == NULL) ? "(no message)" : msg);
 }
 
 magic_t

@@ -1,3 +1,8 @@
+2006-12-20  Takeshi Abe  <tabe@fixedpoint.jp>
+
+	* file_magic.c (fileMagicRaiseCondition): avoided passing NULL as
+	a message.
+
 2006-12-11  Takeshi Abe  <tabe@fixedpoint.jp>
 
 	* doc/reference.scm: mentioned the return values of magic-open and
