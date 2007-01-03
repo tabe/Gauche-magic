@@ -4,8 +4,8 @@
 (use text.html-lite)
 (use text.tree)
 
-(define *version* "0.1.0")
-(define *last-update* "Wed Dec 06 2006")
+(define *version* "0.1.1")
+(define *last-update* "Wed Jan 03 2007")
 
 (define-syntax def
   (syntax-rules (en ja procedure method)
@@ -138,7 +138,7 @@
 	  (if (eq? 'en lang)
 		  (api en)
 		  (api ja))
-	  (html:address "&copy; 2006 Takeshi Abe")
+	  (html:address "&copy; 2006,2007 Takeshi Abe")
 	  ))))
 
 (define (main args)
