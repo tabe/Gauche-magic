@@ -57,7 +57,7 @@
 (dynamic-load "file_magic")
 
 (define-condition-type <magic-error> <error> #f
-  ((no :init-keyword :no)))
+  (no))
 
 (define default-magic-file (make-parameter (%default-magic-file%)))
 

@@ -1,3 +1,10 @@
+2007-01-18  Takeshi Abe  <tabe@fixedpoint.jp>
+
+	* release 0.1.1
+
+	* file/magic.scm (<magic-error>): adopted a spec change of define-condition-type
+	with Gauche 0.8.8.
+
 2006-12-20  Takeshi Abe  <tabe@fixedpoint.jp>
 
 	* file_magic.c (fileMagicRaiseCondition): avoided passing NULL as
