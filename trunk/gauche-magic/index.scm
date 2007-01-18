@@ -12,7 +12,7 @@
  (Fileinfo "http://pecl.php.net/package/fileinfo")
  )
 
-(define *last-update* "Wed Dec 06 2006")
+(define *last-update* "Thu Jan 18 2007")
 (define *gauche-magic-version* (file->string "../VERSION"))
 (define *gauche-magic-tarball-basename* (string-append "Gauche-magic-" *gauche-magic-version* ".tgz"))
 (define *gauche-magic-tarball-size* (file-size (string-append "../../" *gauche-magic-tarball-basename*)))
@@ -26,6 +26,9 @@
 	 (html:p :id "lang_navi" (html:a :href (en/ja "index.html" "index.en.html")
 										"[" (en/ja "Japanese" "English") "]"))
 	 (html:p :id "last_update" "Last update: " *last-update*)
+	 (fixedpoint:separator)
+	 (fixedpoint:adsense)
+	 (fixedpoint:separator)
 	 (html:p (html:dfn /Gauche-magic/)
 			 (en/ja
 				 (list " is an extension package of " /Gauche/ " which provides a binding of the " /magic/ " library.")
@@ -33,6 +36,8 @@
 
 	 (html:h2 :style "border-bottom: 1px solid #bbbbbb;" (en/ja "News" "最新情報"))
 	 (html:ul
+	  (html:li "[2006-01-18] " (en/ja "Release 0.1.1. Small fixes and changes for Gauche 0.8.8 API."
+									  "バージョン 0.1.1 を公開しました。小さなバグ修正と Gauche 0.8.8 API 向けの変更が含まれています。"))
 	  (html:li "[2006-12-06] " (en/ja "Release 0.1.0." "バージョン 0.1.0 を公開しました。")))
 
 	 (html:h2 :style "border-bottom: 1px solid #bbbbbb;" (en/ja "Features" "特徴"))
@@ -43,8 +48,8 @@
 					  "マジックデータベースの整合性チェックとコンパイル。")))
 
 	 (html:h2 :style "border-bottom: 1px solid #bbbbbb;" (en/ja "Requirements" "導入"))
-	 (html:p (en/ja "This package is for Gauche 0.8.7 or later."
-					"このパッケージは Gauche 0.8.7 またはそれ以上で動作します。"))
+	 (html:p (en/ja "This package is for Gauche 0.8.8 or later."
+					"このパッケージは Gauche 0.8.8 またはそれ以上で動作します。"))
 	 (html:ul
 	  (html:li (en/ja (list "It requires the " /magic/ " library (file-4.12 or higher) which has been installed.")
 					  (list "また別途 " /magic/ " ライブラリ(file バージョン 4.12 以上)がインストールされている必要があります。"))))
