@@ -36,7 +36,7 @@
 
 	 (html:h2 :style "border-bottom: 1px solid #bbbbbb;" (en/ja "News" "最新情報"))
 	 (html:ul
-	  (html:li "[2006-01-18] " (en/ja "Release 0.1.1. Small fixes and changes for Gauche 0.8.8 API."
+	  (html:li "[2007-01-18] " (en/ja "Release 0.1.1. Small fixes and changes for Gauche 0.8.8 API."
 									  "バージョン 0.1.1 を公開しました。小さなバグ修正と Gauche 0.8.8 API 向けの変更が含まれています。"))
 	  (html:li "[2006-12-06] " (en/ja "Release 0.1.0." "バージョン 0.1.0 を公開しました。")))
 
