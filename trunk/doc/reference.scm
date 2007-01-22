@@ -5,7 +5,7 @@
 (use text.tree)
 
 (define *version* "0.1.1")
-(define *last-update* "Wed Jan 03 2007")
+(define *last-update* "Mon Jan 22 2007")
 
 (define-syntax def
   (syntax-rules (en ja procedure method)
@@ -131,9 +131,11 @@
 	   ".constant { font-size: medium; font-weight: normal; }\n"
 	   ".variable { font-size: medium; font-weight: normal; }\n"
 	   "#last_update { text-align: right; font-size: small; }\n"
+	   "#project { text-align: right; }\n"
 	   " -->")
 	  (html:p "For version " *version*)
 	  (html:p :id "last_update" "last update: " *last-update*)
+	  (html:p :id "project" (html:a :href "http://www.fixedpoint.jp/gauche-magic/" "http://www.fixedpoint.jp/gauche-magic/"))
 	  (html:h2 "API")
 	  (if (eq? 'en lang)
 		  (api en)
