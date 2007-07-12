@@ -70,6 +70,6 @@ if [ "$pub" = "yes" ]; then
 	  ../$MODULE-$VERSION/doc/reference.en.html \
 	  gauche-magic/index.html \
 	  gauche-magic/index.en.html; do
-	cp -upf $x /var/lib/apache2/htdocs/gauche-magic/
+	cp -upf $x /home/htdocs/gauche-magic/
   done
 fi
