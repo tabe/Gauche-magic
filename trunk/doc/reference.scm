@@ -115,7 +115,7 @@
   (let ((title (if (eq? 'ja lang) "Gauche-magic リファレンスマニュアル" "Gauche-magic Reference Manual")))
 	(html:html
 	 (html:head
-	  (if (eq? 'ja lang) (html:meta :http-equiv "Content-Type" :content "text/html; charset=EUC-JP") '())
+	  (if (eq? 'ja lang) (html:meta :http-equiv "Content-Type" :content "text/html; charset=UTF-8") '())
 	  (html:title title))
 	 (html:body
 	  (html:h1 title)
