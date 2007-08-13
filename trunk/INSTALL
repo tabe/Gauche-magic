@@ -17,13 +17,18 @@ $ make
 Distribution Specific
 =====================
 
-* Debian (sarge)
+* Debian (etch)
 If you do not have the magic library, then:
-# apt-get install libmagic1 libmagic-dev
+# aptitude install libmagic1 libmagic-dev
 
-* Fedora Core 5
+* Fedora Core 6
 If you do not have the magic library, then:
 # yum install file
+
+* FreeBSD 6.2
+If you do not have the magic library, then:
+# cd /usr/ports/sysutils/file
+# make install clean
 
 * Cygwin
 I have succeeded in installing it with Cygwin DLL 1.5.21-1 (Windows XP).
