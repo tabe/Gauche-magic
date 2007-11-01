@@ -1,5 +1,5 @@
 #!/usr/bin/env gosh
-;; -*- encoding: euc-jp -*-
+;; -*- mode: scheme; coding: euc-jp -*-
 
 (use fixedpoint.package)
 (use fixedpoint.site)
@@ -12,7 +12,7 @@
  (Fileinfo "http://pecl.php.net/package/fileinfo")
  )
 
-(define-package Gauche-magic 2007 1 18)
+(define-package Gauche-magic 2007 11 1)
 
 (define-index Gauche-magic
   (html:p (html:dfn /Gauche-magic/)
@@ -22,6 +22,8 @@
 
   (html:h2 :style "border-bottom: 1px solid #bbbbbb;" (en/ja "News" "最新情報"))
   (html:ul
+   (html:li "[2007-11-01] " (en/ja "It is confirmed that the current version 0.1.1 runs on Gauche 0.8.12."
+                                   "Gauche 0.8.12 で現在のバージョン 0.1.1 が動作することを確認しました。"))
    (html:li "[2007-01-18] " (en/ja "Release 0.1.1. Small fixes and changes for Gauche 0.8.8 API."
                                    "バージョン 0.1.1 を公開しました。小さなバグ修正と Gauche 0.8.8 API 向けの変更が含まれています。"))
    (html:li "[2006-12-06] " (en/ja "Release 0.1.0." "バージョン 0.1.0 を公開しました。")))
