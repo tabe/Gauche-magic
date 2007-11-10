@@ -36,15 +36,15 @@
 #ifndef GAUCHE_FILE_MAGIC_H
 #define GAUCHE_FILE_MAGIC_H
 
+#include <gauche.h>
+#include <gauche/extend.h>
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <fcntl.h>
 
 #include <magic.h>
-
-#include <gauche.h>
-#include <gauche/extend.h>
 
 SCM_DECL_BEGIN
 
