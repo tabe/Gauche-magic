@@ -21,7 +21,7 @@ Distribution Specific
 If you do not have the magic library, then:
 # aptitude install libmagic1 libmagic-dev
 
-* Fedora Core 6
+* Fedora 8
 If you do not have the magic library, then:
 # yum install file
 
