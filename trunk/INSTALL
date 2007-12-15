@@ -13,6 +13,9 @@ $ ./configure
 $ make
 # make install
 
+Or simply,
+# gauche-package install Gauche-magic-0.1.1.tgz
+
 
 Distribution Specific
 =====================
