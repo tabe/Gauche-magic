@@ -42,6 +42,9 @@
    (html:li (en/ja (list "It requires the " /magic/ " library (file-4.12 or higher) which has been installed.")
                    (list "また別途 " /magic/ " ライブラリ(file バージョン 4.12 以上)がインストールされている必要があります。"))))
 
+  (html:h2 :style "border-bottom: 1px solid #bbbbbb;" (en/ja "License" "ライセンス"))
+  (html:p "The BSD License")
+
   (html:h2 :style "border-bottom: 1px solid #bbbbbb;" (en/ja "Download" "ダウンロード"))
   (*package-download*)
 
