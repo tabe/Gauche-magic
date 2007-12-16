@@ -126,10 +126,12 @@ fileMagicCheck(magic_t ms, const char *path)
 const char *
 defaultMagicFile(void)
 {
-#if defined HAVE__USR_SHARE_FILE_MAGIC
-  return "/usr/share/file/magic";
+#if defined HAVE__USR_SHARE_MISC_MAGIC
+  return "/usr/share/misc/magic";
 #elif defined HAVE__USR_SHARE_MISC_FILE_MAGIC
   return "/usr/share/misc/file/magic";
+#elif defined HAVE__USR_LOCAL_SHARE_FILE_MAGIC
+  return "/usr/local/share/file/magic";
 #else
   return "/usr/share/file/magic";
 #endif
