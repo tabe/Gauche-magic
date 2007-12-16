@@ -1,9 +1,9 @@
 Basic
 =====
 
-It is necessary to:
-- use gauche 0.8.7 or later
-- have been installed the magic library (aka libmagic) of file-4.12 or higher.
+It is recommended to:
+- use gauche 0.8.12 or later, and
+- have been installed the magic library (aka libmagic) of file-4.21 or higher.
 
 
 Command lines
@@ -14,7 +14,7 @@ $ make
 # make install
 
 Or simply,
-# gauche-package install Gauche-magic-0.1.1.tgz
+# gauche-package install Gauche-magic-0.1.2.tgz
 
 
 Distribution Specific

@@ -4,8 +4,8 @@
 (use text.html-lite)
 (use text.tree)
 
-(define *version* "0.1.1")
-(define *last-update* "Mon Jan 22 2007")
+(define *version* "0.1.2")
+(define *last-update* "Sun Dec 16 2007")
 
 (define-syntax def
   (syntax-rules (en ja procedure method)
@@ -120,7 +120,7 @@
        ((procedure (call-with-magic-set proc &keyword db flags))
         ("Call `proc' with a <magic-set> whose flags are `flags' as a single argument."
 		 "If `flags' with MAGIC_CHECK off (default), before doing that it loads a magic wisdom which is either the `db' or a default one unless specified."
-		 "Returning with an error or without it closes the <magic-set>.")
+		 "Returning with an error or without, it closes the <magic-set>.")
         ("フラグ `flags' を持つ <magic-set> を引数にして `proc' を呼びます。"
 		 "フラグで MAGIC_CHECK がオフのとき(デフォルト)には、呼ぶ前にマジックデータベースをロードします。このデータベースはキーワード `db' で指定されたもの、指定されていない場合はデフォルトのものです。"
 		 "エラーとともに戻る場合でもそうでない場合でも、引数に用いた <magic-set> は閉じられます。"))

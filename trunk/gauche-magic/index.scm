@@ -12,7 +12,7 @@
  (Fileinfo "http://pecl.php.net/package/fileinfo")
  )
 
-(define-package Gauche-magic 2007 11 1)
+(define-package Gauche-magic 2007 12 16)
 
 (define-index Gauche-magic
   (html:p (html:dfn /Gauche-magic/)
@@ -22,6 +22,8 @@
 
   (html:h2 :style "border-bottom: 1px solid #bbbbbb;" (en/ja "News" "最新情報"))
   (html:ul
+   (html:li "[2007-12-16] " (en/ja "Release 0.1.2. Small fixes and having tested with file-4.21."
+                                   "バージョン 0.1.2 を公開しました。小さなバグ修正と file-4.21 での動作確認が行われています。"))
    (html:li "[2007-11-01] " (en/ja "It is confirmed that the current version 0.1.1 runs on Gauche 0.8.12."
                                    "Gauche 0.8.12 で現在のバージョン 0.1.1 が動作することを確認しました。"))
    (html:li "[2007-01-18] " (en/ja "Release 0.1.1. Small fixes and changes for Gauche 0.8.8 API."
@@ -36,11 +38,11 @@
                    "マジックデータベースの整合性チェックとコンパイル。")))
 
   (html:h2 :style "border-bottom: 1px solid #bbbbbb;" (en/ja "Requirements" "導入"))
-  (html:p (en/ja "This package is for Gauche 0.8.8 or later."
-                 "このパッケージは Gauche 0.8.8 またはそれ以上で動作します。"))
+  (html:p (en/ja "This package is for Gauche 0.8.12 or later."
+                 "このパッケージは Gauche 0.8.12 またはそれ以上で動作します。"))
   (html:ul
-   (html:li (en/ja (list "It requires the " /magic/ " library (file-4.12 or higher) which has been installed.")
-                   (list "また別途 " /magic/ " ライブラリ(file バージョン 4.12 以上)がインストールされている必要があります。"))))
+   (html:li (en/ja (list "It requires the " /magic/ " library (file-4.21 or higher) which has been installed.")
+                   (list "また別途 " /magic/ " ライブラリ(file バージョン 4.21 以上)がインストールされている必要があります。"))))
 
   (html:h2 :style "border-bottom: 1px solid #bbbbbb;" (en/ja "License" "ライセンス"))
   (html:p "The BSD License")

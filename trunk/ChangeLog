@@ -1,3 +1,17 @@
+2007-12-16  Takeshi Abe  <tabe@fixedpoint.jp>
+
+	* Release 0.1.2.
+
+	* file/magic.scm (call-with-magic-set): `before' part became sane wrt
+	continuation.
+
+	* test.scm: update for file-4.21, that changed the behavior in case of
+	calling magic_file() with a non existing path.
+
+	* file_magic.c (defaultMagicFile): accepted the FreeBSD's flavor.
+
+	* Makefile.in, configure.ac: introduced the current manner of gauche-package.
+
 2007-11-10  Takeshi Abe  <tabe@fixedpoint.jp>
 
 	* file_magic.h: inlude gauche.h before other headers possibly
