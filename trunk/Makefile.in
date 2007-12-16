@@ -8,6 +8,9 @@ prefix      = @prefix@
 exec_prefix = @exec_prefix@
 bindir      = @bindir@
 libdir      = @libdir@
+datadir     = @datadir@
+datarootdir = @datarootdir@
+srcdir      = @srcdir@
 VPATH       = $(srcdir)
 
 # These may be overridden by make invocators
@@ -22,67 +25,68 @@ SOEXT  = @SOEXT@
 OBJEXT = @OBJEXT@
 EXEEXT = @EXEEXT@
 
-# Module-specific stuff
-PACKAGE   = Gauche-magic
-
-ARCHFILES = file_magic.$(SOEXT)
-SCMFILES  = file/magic.scm
-HEADERS   = file_magic.h file_magic.types
-
-TARGET    = $(ARCHFILES)
-GENERATED = 
-CONFIG_GENERATED = Makefile config.cache config.log config.status
-TEST_GENERATED = test.log trivial.mgc
-
-HEADER_INSTALL_DIR  = $(DESTDIR)`$(GAUCHE_CONFIG) --siteincdir`
-SCM_INSTALL_DIR     = $(DESTDIR)`$(GAUCHE_CONFIG) --sitelibdir`
-ARCH_INSTALL_DIR    = $(DESTDIR)`$(GAUCHE_CONFIG) --sitearchdir`
-
 CPPFLAGS = @CPPFLAGS@ @DEFS@
 CFLAGS   = @CFLAGS@
 LDFLAGS  = @LDFLAGS@
 LIBS     = @LIBS@ -lmagic
 
-file_magic_SRCS = file_magic.c file_magiclib.stub
+# Module-specific stuff
+PACKAGE   = Gauche-magic
+
+ARCHFILES = file_magic.$(SOEXT)
+SCMFILES  = $(srcdir)/file/magic.scm
+HEADERS   = $(srcdir)/file_magic.h $(srcdir)/file_magic.types
+
+TARGET    = $(ARCHFILES)
+GENERATED = 
+CONFIG_GENERATED = Makefile config.cache config.log config.status \
+		   configure.lineno autom4te*.cache $(PACKAGE).gpd
+TEST_GENERATED = test.log trivial.mgc
+
+GAUCHE_PKGINCDIR  = $(DESTDIR)@GAUCHE_PKGINCDIR@
+GAUCHE_PKGLIBDIR  = $(DESTDIR)@GAUCHE_PKGLIBDIR@
+GAUCHE_PKGARCHDIR = $(DESTDIR)@GAUCHE_PKGARCHDIR@
+
+file_magic_SRCS = $(srcdir)/file_magic.c $(srcdir)/file_magiclib.stub
 
 all : $(TARGET)
 
 file_magic.$(SOEXT) : $(file_magic_SRCS)
 	$(GAUCHE_PACKAGE) compile --verbose \
-		--cppflags='$(CPPFLAGS)' \
-		--cflags='$(CFLAGS)' \
-		--ldflags='$(LDFLAGS)' \
-		--libs='$(LIBS)' \
-		file_magic $(file_magic_SRCS)
+       --cppflags='$(CPPFLAGS)' \
+       --cflags='$(CFLAGS)' \
+       --ldflags='$(LDFLAGS)' \
+       --libs='$(LIBS)' \
+       file_magic $(file_magic_SRCS)
 
 check : all test.scm
 	@rm -f $(TEST_GENERATED)
-	$(GOSH) -I. test.scm > test.log
+	$(GOSH) -I. -I$(srcdir) $(srcdir)/test.scm > test.log
 
 install : all
-	$(INSTALL) -m 444 -T $(HEADER_INSTALL_DIR) $(HEADERS)
-	$(INSTALL) -m 444 -T $(SCM_INSTALL_DIR) $(SCMFILES) 
-	$(INSTALL) -m 555 -T $(ARCH_INSTALL_DIR) $(ARCHFILES)
-	$(INSTALL) -m 444 -T $(SCM_INSTALL_DIR)/.packages $(PACKAGE).gpd
+	$(INSTALL) -m 444 -T $(GAUCHE_PKGINCDIR) $(HEADERS)
+	$(INSTALL) -m 444 -T $(GAUCHE_PKGLIBDIR) $(SCMFILES) 
+	$(INSTALL) -m 555 -T $(GAUCHE_PKGARCHDIR) $(ARCHFILES)
+	$(INSTALL) -m 444 -T $(GAUCHE_PKGLIBDIR)/.packages $(PACKAGE).gpd
 
 uninstall :
-	$(INSTALL) -U $(HEADER_INSTALL_DIR) $(HEADERS)
-	$(INSTALL) -U $(SCM_INSTALL_DIR) $(SCMFILES) 
-	$(INSTALL) -U $(ARCH_INSTALL_DIR) $(ARCHFILES)
-	$(INSTALL) -m 444 -U $(SCM_INSTALL_DIR)/.packages $(PACKAGE).gpd
+	$(INSTALL) -U $(GAUCHE_PKGINCDIR) $(HEADERS)
+	$(INSTALL) -U $(GAUCHE_PKGLIBDIR) $(SCMFILES) 
+	$(INSTALL) -U $(GAUCHE_PKGARCHDIR) $(ARCHFILES)
+	$(INSTALL) -U $(GAUCHE_PKGLIBDIR)/.packages $(PACKAGE).gpd
 
 clean :
-	cd doc && $(MAKE) clean
+	$(MAKE) -C doc clean
 	$(GAUCHE_PACKAGE) compile --clean file_magic $(file_magic_SRCS)
-	rm -rf core *~ $(TARGET) $(GENERATED) $(TEST_GENERATED) so_locations
+	rm -rf core $(TARGET) $(GENERATED) *~ $(TEST_GENERATED) so_locations
 
 distclean : clean
-	cd doc && $(MAKE) distclean
+	$(MAKE) -C doc distclean
 	rm -rf $(CONFIG_GENERATED)
 
 maintainer-clean : clean
-	cd doc && $(MAKE) maintainer-clean
-	rm -rf $(CONFIG_GENERATED) configure
+	$(MAKE) -C doc maintainer-clean
+	rm -rf $(CONFIG_GENERATED) configure VERSION
 
 doc : all
-	cd doc && $(MAKE) doc
+	$(MAKE) -C doc doc

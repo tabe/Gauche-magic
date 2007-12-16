@@ -28,6 +28,15 @@ AC_SUBST(SOEXT)
 AC_SUBST(OBJEXT)
 AC_SUBST(EXEEXT)
 
+ac_default_prefix=`$GAUCHE_CONFIG --prefix`
+
+GAUCHE_PKGINCDIR=`$GAUCHE_CONFIG --pkgincdir`
+GAUCHE_PKGLIBDIR=`$GAUCHE_CONFIG --pkglibdir`
+GAUCHE_PKGARCHDIR=`$GAUCHE_CONFIG --pkgarchdir`
+AC_SUBST(GAUCHE_PKGINCDIR)
+AC_SUBST(GAUCHE_PKGLIBDIR)
+AC_SUBST(GAUCHE_PKGARCHDIR)
+
 dnl Check for headers.
 dnl Add your macro calls to check required headers, if you have any.
 AC_CHECK_HEADER([magic.h], [], [AC_MSG_ERROR([could not found and exit])])
@@ -39,7 +48,8 @@ AC_PROG_CPP
 
 dnl Check for libraries
 dnl Add your macro calls to check required libraries, if you have any.
-AC_CHECK_FILES([/usr/share/file/magic /usr/share/misc/file/magic])
+AC_CHECK_LIB([z], [inflate])
+AC_CHECK_FILES([/usr/share/file/magic /usr/share/misc/file/magic /usr/share/misc/magic /usr/local/share/file/magic])
 
 dnl Creating gpd (gauche package description) file
 GAUCHE_PACKAGE_CONFIGURE_ARGS="`echo ""$ac_configure_args"" | sed 's/[\\""\`\$]/\\\&/g'`"
