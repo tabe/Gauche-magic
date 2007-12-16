@@ -48,9 +48,11 @@
 		  (magic-file ms "file/magic.scm"))
    (test* "<magic-error>"
 		  #t
-		  (guard (e
-				  (else (condition-has-type? e <magic-error>)))
-			(magic-file ms "no_such_file")))
+		  (string?
+           (guard (e
+                   ((condition-has-type? e <magic-error>) (slot-ref e 'message))
+                   (else 'unexpected))
+             (magic-file ms "no_such_file"))))
    ))
 
 (call-with-magic-set
@@ -59,6 +61,17 @@
    (test* "magic-check(trivial)" 0 (magic-check ms "test/trivial"))
    (test* "magic-compile" 0 (magic-compile ms "test/trivial")))
  :flags MAGIC_CHECK)
+
+(let ((c #f)
+      (more #f))
+  (call-with-magic-set
+   (lambda (ms)
+     (test* "call-with-magic-set(before and after)"
+            "ASCII C program text"
+            (magic-file ms (call/cc (lambda (cont) (set! c cont) "file_magic.h"))))))
+  (unless more
+    (set! more #t)
+    (c "file_magic.c")))
 
 (test-section "errors")
 
