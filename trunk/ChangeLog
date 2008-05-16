@@ -1,3 +1,11 @@
+2008-05-16  Takeshi Abe  <tabe@fixedpoint.jp>
+
+	* file_magic.c (fileMagicOpen, fileMagicFile): simplified.
+
+2007-12-28  Takeshi Abe  <tabe@fixedpoint.jp>
+
+	* configure.ac: check function magic_descriptor.
+
 2007-12-16  Takeshi Abe  <tabe@fixedpoint.jp>
 
 	* Release 0.1.2.

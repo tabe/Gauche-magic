@@ -81,7 +81,6 @@ fileMagicOpen(int flags)
   magic_t ms = magic_open(flags);
   if (ms == NULL) {
 	Scm_Error("magic_open(%d) failed", flags);
-	return (magic_t)NULL;
   }
   return ms;
 }
@@ -92,7 +91,6 @@ fileMagicFile(magic_t ms, const char *path)
   const char *result;
   if ( (result = magic_file(ms, path)) == NULL) {
 	fileMagicRaiseCondition(ms);
-	return (const char *)NULL;
   }
   return result;
 }

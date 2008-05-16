@@ -51,6 +51,8 @@ dnl Add your macro calls to check required libraries, if you have any.
 AC_CHECK_LIB([z], [inflate])
 AC_CHECK_FILES([/usr/share/file/magic /usr/share/misc/file/magic /usr/share/misc/magic /usr/local/share/file/magic])
 
+AC_CHECK_FUNCS(magic_descriptor)
+
 dnl Creating gpd (gauche package description) file
 GAUCHE_PACKAGE_CONFIGURE_ARGS="`echo ""$ac_configure_args"" | sed 's/[\\""\`\$]/\\\&/g'`"
 AC_MSG_NOTICE([creating ${PACKAGE_NAME}.gpd])
