@@ -1,7 +1,7 @@
 /*
  *  file_magic.h
  *
- *   Copyright (c) 2006,2007 Takeshi Abe. All rights reserved.
+ *   Copyright (c) 2006-2008 Takeshi Abe. All rights reserved.
  *
  *   Redistribution and use in source and binary forms, with or without
  *   modification, are permitted provided that the following conditions
@@ -53,8 +53,16 @@ extern ScmClass *FileMagicSetClass;
 #define FILE_MAGIC_SET_UNBOX(obj) SCM_FOREIGN_POINTER_REF(magic_t, obj)
 #define FILE_MAGIC_SET_BOX(ctx)   Scm_MakeForeignPointer(FileMagicSetClass, ctx)
 
+int fileMagicSetClosedP(ScmObj obj);
+void fileMagicSetMarkClosed(ScmObj obj);
+
 magic_t fileMagicOpen(int flags);
 const char *fileMagicFile(magic_t ms, const char *path);
+
+int fileMagicLoad(magic_t ms, const char *path);
+int fileMagicCompile(magic_t ms, const char *path);
+int fileMagicCheck(magic_t ms, const char *path);
+
 const char *defaultMagicFile(void);
 
 SCM_DECL_END
